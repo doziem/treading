@@ -17,13 +17,11 @@ public class ForgotPasswordService implements IForgotPassword{
     public ForgotPasswordToken createToken(Users user, String id, String otp, VerificationType verificationType, String sendTo) {
 
         ForgotPasswordToken token = new ForgotPasswordToken();
-
         token.setUser(user);
         token.setOtp(otp);
         token.setSendTo(sendTo);
         token.setVerificationType(verificationType);
         token.setId(id);
-
         return forgotPasswordRepository.save(token);
     }
 
@@ -41,6 +39,5 @@ public class ForgotPasswordService implements IForgotPassword{
     @Override
     public void deleteToken(ForgotPasswordToken token) {
         forgotPasswordRepository.delete(token);
-
     }
 }

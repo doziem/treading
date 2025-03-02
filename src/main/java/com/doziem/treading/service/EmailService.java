@@ -13,12 +13,11 @@ public class EmailService {
     private JavaMailSender javaMailSender;
 
     public void sendVerificationOtpEmail(String email,String otp) throws MessagingException {
+
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
 
         MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage,"utf-8");
-
         String subject = "Verify Otp";
-
         String text = "Your Verification Otp is " + otp;
 
         mimeMessageHelper.setSubject(subject);
@@ -27,10 +26,8 @@ public class EmailService {
 
         try {
             javaMailSender.send(mimeMessage);
-
         }catch (MailException e){
             throw new MailSendException(e.getMessage());
         }
-
     }
 }

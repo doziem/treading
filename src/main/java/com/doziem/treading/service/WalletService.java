@@ -21,10 +21,10 @@ public class WalletService implements IWalletService{
     @Override
     public Wallet getUserWallet(Users user) {
 
-        Wallet wallet = walletRepository.findByUserId(user.getId());
+        Wallet wallet = walletRepository.findUserByUserId(user.getId());
         if(wallet== null){
             wallet = new Wallet();
-            wallet.setUsers(user);
+            wallet.setUser(user);
 
         }
         return wallet;

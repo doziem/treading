@@ -16,7 +16,7 @@ public class Wallet {
     private Long id;
 
     @OneToOne
-    private Users users;
+    private Users user;
 
     private BigDecimal balance;
 }
